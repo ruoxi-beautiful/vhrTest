@@ -6,6 +6,7 @@ import org.javaboy.vhr.model.Role;
 import org.javaboy.vhr.service.MenuService;
 import org.javaboy.vhr.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class PermissController {
     @Autowired
     MenuService menuService;
     @GetMapping("/")
+    //@PreAuthorize("hasRole('ROLE_manage')")只有角色是ROLE_manage才可以访问该接口
     public List<Role> getAllRoles() {
         return roleService.getAllRoles();
     }
