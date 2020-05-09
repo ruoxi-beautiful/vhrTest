@@ -44,6 +44,7 @@ public class PermissController {
 
     @PutMapping("/")
     public RespBean updateMenuRole(Integer rid, Integer[] mids) {
+        System.out.print("123");
         if (menuService.updateMenuRole(rid, mids)) {
             return RespBean.ok("更新成功!");
         }
